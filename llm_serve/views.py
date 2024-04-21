@@ -26,9 +26,9 @@ class OnboardAPI(APIView):
             message_input = []
 
             for message in messages:
-                if message["role"] == "human":
+                if message["role"] == "user":
                     message_input.append(HumanMessage(content=message["content"]))
-                elif message["role"] == "system":
+                elif message["role"] == "assistant":
                     message_input.append(AIMessage(content=message["content"]))
 
             agent_executor = agent.AiAgent.return_agent_executor(chat, tools, prompt)
